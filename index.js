@@ -87,7 +87,7 @@ function paintPass(info,name) {
             </div>
        `;
     };
-
+    
     body.innerHTML += `
     <a href='secondIndex.html?inv=${name}' class='enlaceImagen'>
         <img class="gifCard" src="images/winterflower-letter-1174_256.gif" alt="">
@@ -98,6 +98,52 @@ function paintPass(info,name) {
     </section>`;
 }
 
+function paintPanelControl() {
+    let body = document.querySelector('body');
+
+    let arrayInvitados = Object.values(baseDatosInvitados);
+    let arrayKeys = Object.keys(baseDatosInvitados);
+    // console.log(arrayInvitados[0]);
+    // console.log(arrayKeys[0]);
+    
+    let htmlInGrid= "";
+    for (let i = 0; i < arrayInvitados.length; i++) {
+        let individualObject = arrayInvitados[i];
+        let nameIntegrantes;
+        if(individualObject.pases === 1) {
+            nameIntegrantes = `<p>Invitado individual</p>`;
+        } else {
+            let groupOfIntegrantes = individualObject.nombres.map(e => e).join(', ');
+            
+            nameIntegrantes = `
+                <p class='integrantsNames'>${groupOfIntegrantes}</p>
+            `;
+        }
+        htmlInGrid +=  `
+            <p>${individualObject.titulo}</p>
+            <p>${individualObject.pases}</p>
+            ${nameIntegrantes}
+            <p class='urlCopy'>https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${arrayKeys[i]}</p>
+        `;
+    }
+
+    body.innerHTML = `
+        <main class="panelControl">
+        <div class="headControl">
+            <p>PANEL DE CONTROL: INVITADOS</p>
+            <p>Gestión de enlaces y pases</p>
+        </div>
+        <section class="gridData">
+            <p class="headerTable">FAMILIA/INVITADO</p>
+            <p class="headerTable">PASES</p>
+            <p class="headerTable">INTEGRANTES</p>
+            <p class="headerTable">URL</p>
+            ${htmlInGrid}
+        </section>
+    </main>
+    `;
+}
+
 function deniedPass() {
     let initialSection = document.querySelector('.initial-section');
     initialSection.innerHTML += `<p style="margin: 30px" class="nombres">PASE DENEGADO</p>`;
@@ -105,16 +151,19 @@ function deniedPass() {
 
 
 
+
 function permitirPase() {
     let whoIs = getParamsURL();
     let dataInvited = baseDatosInvitados[whoIs];
-
-    if (dataInvited === undefined) {
+    // console.log(dataInvited);
+    
+    if(whoIs == 'lista') {
+        paintPanelControl();
+    } else if (dataInvited === undefined) {
         console.log("No entras");
         deniedPass();
     } else {
         console.log("Eres un invitado");
-        console.log(dataInvited);
         paintPass(dataInvited,whoIs);
     }
 }
