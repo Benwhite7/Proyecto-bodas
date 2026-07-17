@@ -1,4 +1,4 @@
-export const baseDatosInvitados = {
+const baseDatosInvitados = {
     "balceda": { titulo: "Familia Balceda", pases: 4, nombres: ["Pablo Balceda", "Romy de Balceda", "Dan Balceda", "Esmeralda Balceda"] },
     "vilela": { titulo: "Familia Vilela", pases: 4, nombres: ["José Vilela", "Nancy Vilela", "Keila de Pantoja", "Paul Pantoja"] },
     "montero": { titulo: "Familia Montero", pases: 3, nombres: ["Luis Montero", "Francisca de Montero", "Edaluz Montero"] },
@@ -68,57 +68,31 @@ function getParamsURL() {
     let identity;
     const params = new URLSearchParams(window.location.search);
     return identity = params.get('inv');
-}   
-
-function paintPass(info,name) {
-    let initialSection = document.querySelector('.initial-section');
-    let body = document.querySelector('body');
-    initialSection.innerHTML += `
-        <p class="invitacion-texto">INVITACION ESPECIAL PARA:</p>
-        <p class="nombres">${info.titulo}</p>
-        <p class="invitacion-tipo">${info.pases} PASES RESERVADOS</p>
-    `;
-    
-    if(info.pases > 2) {
-        let groupFamily = info.nombres.map(e => `<p class='individualName'>${e}</p>`).join('');
-       initialSection.innerHTML += `
-            <div class='namesFamily'>
-                ${groupFamily}
-            </div>
-       `;
-    };
-
-    body.innerHTML += `
-    <a href='secondIndex.html?inv=${name}' class='enlaceImagen'>
-        <img class="gifCard" src="images/winterflower-letter-1174_256.gif" alt="">
-    </a>
-    <section class="footer-container">
-        <img class="fondoDeNovios" src="images/fondoboda.png" alt="">
-        <img class="novios" src="images/novios.png" alt="">
-    </section>`;
-}
-
-function deniedPass() {
-    let initialSection = document.querySelector('.initial-section');
-    initialSection.innerHTML += `<p style="margin: 30px" class="nombres">PASE DENEGADO</p>`;
-}
-
-
+};
 
 function permitirPase() {
     let whoIs = getParamsURL();
     let dataInvited = baseDatosInvitados[whoIs];
 
     if (dataInvited === undefined) {
-        console.log("No entras");
-        deniedPass();
-    } else {
-        console.log("Eres un invitado");
-        console.log(dataInvited);
-        paintPass(dataInvited,whoIs);
+        window.location.href = 'index.html';
     }
 }
 
-
-
 permitirPase();
+
+
+let gridOfDays = document.querySelector(".gridDays");
+
+const daysOfMayo = [["","","","","","01","02"],
+                    ["03","04","05","06","07","08","09"],
+                    ["10","11","12","13","14","15","16"],
+                    ["17","18","19","20","21","22","23"],
+                    ["24","25","26","27","28","29","30"],
+                    ["31","","","","","",""]];
+
+for (let i = 0; i < daysOfMayo.length; i++) {
+    for (let y = 0; y < daysOfMayo[i].length; y++) {
+        gridOfDays.innerHTML += `<p>${daysOfMayo[i][y]}</p>`
+    }
+}

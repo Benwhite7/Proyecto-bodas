@@ -1,4 +1,7 @@
-html {
+html, body {
+  overflow-x: hidden;
+}
+body {
     background-image: url('./images/fondoDan.jpg');
     background-size: cover;
     background-position: center;
@@ -7,7 +10,8 @@ html {
     font-family: "Bodoni Moda", serif;
     font-optical-sizing: none;
     font-weight: 500;
-    overflow-x: hidden;
+    position: relative;
+    margin: 0;
 }
 
 .initial-section {
@@ -23,12 +27,12 @@ html {
 .ramaUno {
     transform: rotateZ(20deg);
     left: -15%;
-    top: 40px;
+    top: 5%;
 }
 .ramaDos {
     transform: rotateZ(-50deg);
     right: -18%;
-    top: 40px;
+    top: 5%;
 }
 
 .titulo,
@@ -87,9 +91,17 @@ html {
   margin: 0;
 }
 
-.gifCard {
+.enlaceImagen {
+    display: inline-block;
+    line-height: 0;
     width: 70%;
     margin: 25px 15% 125px;
+}
+
+.gifCard {
+    display: block;
+    width: 100%;
+    border: 0;
 }
 
 .footer-container {
@@ -100,7 +112,6 @@ html {
     position: relative;
     left: -13%;
     width: 125%;
-    bottom: -10px;
 }
 .novios {
     position: absolute;
