@@ -1,0 +1,111 @@
+html {
+    background-image: url('./images/fondoDan.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: none;
+    font-weight: 500;
+    overflow-x: hidden;
+}
+
+.initial-section {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.initial-section img{
+    width: 30%;
+    position: absolute;
+}
+
+.ramaUno {
+    transform: rotateZ(20deg);
+    left: -15%;
+    top: 40px;
+}
+.ramaDos {
+    transform: rotateZ(-50deg);
+    right: -18%;
+    top: 40px;
+}
+
+.titulo,
+.novio,
+.union,
+.nombres,
+.invitacion-tipo {
+    margin: 3px 0;
+}
+
+.titulo {
+  font-size: 20px;
+}
+
+.novio {
+  font-size: 50px;
+  font-style: italic;
+}
+
+.union {
+    font-size: 50px;
+    font-style: italic;
+}
+
+.invitacion-texto {
+  margin: 50px 0 3px;
+  font-size: 18px;
+  color: #6b6b6b;
+}
+
+.nombres {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.invitacion-tipo {
+  position: relative;
+  left: calc(50% - 100px);
+  height: 23px;
+  width: 200px;
+  font-size: 16px;
+  padding: 3px;
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #39593d;
+  color: #ffffff;
+  text-align: center;
+}
+
+.namesFamily {
+  margin-top: 35px;
+}
+
+.individualName {
+  font-size: 22px;
+  margin: 0;
+}
+
+.gifCard {
+    width: 70%;
+    margin: 25px 15% 125px;
+}
+
+.footer-container {
+    position: relative;
+}
+
+.fondoDeNovios {
+    position: relative;
+    left: -13%;
+    width: 125%;
+    bottom: -10px;
+}
+.novios {
+    position: absolute;
+    bottom: 13%;
+    width: 20%;
+    z-index: 1;
+    left: 41%;
+}
