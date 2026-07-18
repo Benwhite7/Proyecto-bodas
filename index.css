@@ -166,7 +166,7 @@ body {
   width: 94%;
   margin: 0 3%;
   display: grid;
-  grid-template-columns: 30% 15% 30% 25%;
+  grid-template-columns: 21% 18% 25% 36%;
   justify-items: center;
   align-items: center;
   text-align: center;
@@ -178,8 +178,25 @@ body {
   color: #6b6b6b;
 }
 
+.aloneIntegrant {
+  color: #6b6b6b;
+}
+
 .urlCopy {
   font-size: clamp(10px,12px,18px);
   word-break: break-all;
   margin: 4px;
+}
+
+.copyButtonUrl {
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  padding: 3px 7px;
+  border-radius: .25rem;
+  border: solid 1px;
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
 }

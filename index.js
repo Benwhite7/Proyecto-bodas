@@ -68,7 +68,7 @@ function getParamsURL() {
     let identity;
     const params = new URLSearchParams(window.location.search);
     return identity = params.get('inv');
-}   
+}
 
 function paintPass(info,name) {
     let initialSection = document.querySelector('.initial-section');
@@ -98,20 +98,28 @@ function paintPass(info,name) {
     </section>`;
 }
 
+async function copyUrl(content) {
+    console.log("Esta funcion se activa");
+    try {
+        await navigator.clipboard.writeText(content);
+    } catch (err) {
+        console.error('Error al copiar:', err);
+    }
+};
+
 function paintPanelControl() {
+
     let body = document.querySelector('body');
 
     let arrayInvitados = Object.values(baseDatosInvitados);
     let arrayKeys = Object.keys(baseDatosInvitados);
-    // console.log(arrayInvitados[0]);
-    // console.log(arrayKeys[0]);
     
     let htmlInGrid= "";
     for (let i = 0; i < arrayInvitados.length; i++) {
         let individualObject = arrayInvitados[i];
         let nameIntegrantes;
         if(individualObject.pases === 1) {
-            nameIntegrantes = `<p>Invitado individual</p>`;
+            nameIntegrantes = `<p class='aloneIntegrant'>Invitado individual</p>`;
         } else {
             let groupOfIntegrantes = individualObject.nombres.map(e => e).join(', ');
             
@@ -123,7 +131,10 @@ function paintPanelControl() {
             <p>${individualObject.titulo}</p>
             <p>${individualObject.pases}</p>
             ${nameIntegrantes}
-            <p class='urlCopy'>https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${arrayKeys[i]}</p>
+            <div class='urlContain'>
+                <p class='urlCopy'>https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${arrayKeys[i]}</p>
+                <button class='copyButtonUrl' data-url="https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${arrayKeys[i]}">Copiar</button>
+                </div>
         `;
     }
 
@@ -168,6 +179,21 @@ function permitirPase() {
     }
 }
 
+document.addEventListener('click',async(e) => {
+    if(e.target.classList.contains('copyButtonUrl')) {
+        const url = e.target.dataset.url;
+        try {
+            await navigator.clipboard.writeText(url);
+            const targetOriginal = e.target.textContent;
+            e.target.textContent = '¡Copiado!';
+            setTimeout(() => {
+                e.target.textContent = targetOriginal
+            }, 2000);
+        } catch (err) {
+            console.error('Error al copiar:', err);
+        }
+    }
+});
 
 
 permitirPase();
