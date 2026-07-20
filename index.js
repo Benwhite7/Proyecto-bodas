@@ -65,41 +65,40 @@ export const baseDatosInvitados = {
 
 
 function getParamsURL() {
-    let identity;
+    let parameter;
     const params = new URLSearchParams(window.location.search);
-    return identity = params.get('inv');
+    return parameter = params.get('inv');
 }
 
-function paintPass(info,name) {
-    let initialSection = document.querySelector('.initial-section');
+function paintPass(info, name) {
+    let initialSection = document.querySelector('.initialSection');
     let body = document.querySelector('body');
     initialSection.innerHTML += `
-        <p class="invitacion-texto">INVITACION ESPECIAL PARA:</p>
-        <p class="nombres">${info.titulo}</p>
-        <p class="invitacion-tipo">${info.pases} PASES RESERVADOS</p>
+        <p class="invitationText">INVITACION ESPECIAL PARA:</p>
+        <p class="names">${info.titulo}</p>
+        <p class="reservedPasses">${info.pases} PASES RESERVADOS</p>
     `;
-    
-    if(info.pases > 2) {
-        let groupFamily = info.nombres.map(e => `<p class='individualName'>${e}</p>`).join('');
-       initialSection.innerHTML += `
+
+    if (info.pases > 2) {
+        let groupFamily = info.nombres.map(e => `<p class='individualPass'>${e}</p>`).join('');
+        initialSection.innerHTML += `
             <div class='namesFamily'>
                 ${groupFamily}
             </div>
        `;
     };
-    
+
     body.innerHTML += `
-    <a href='secondIndex.html?inv=${name}' class='enlaceImagen'>
+    <a href='secondIndex.html?inv=${name}' class='imageLink'>
         <img class="gifCard" src="images/winterflower-letter-1174_256.gif" alt="">
     </a>
     <section class="footer-container">
-        <img class="fondoDeNovios" src="images/fondoboda.png" alt="">
-        <img class="novios" src="images/novios.png" alt="">
+        <img class="weddingBackground" src="images/fondoboda.png" alt="">
+        <img class="married" src="images/novios.png" alt="">
     </section>`;
-}
+};
 
 async function copyUrl(content) {
-    console.log("Esta funcion se activa");
     try {
         await navigator.clipboard.writeText(content);
     } catch (err) {
@@ -111,76 +110,73 @@ function paintPanelControl() {
 
     let body = document.querySelector('body');
 
-    let arrayInvitados = Object.values(baseDatosInvitados);
-    let arrayKeys = Object.keys(baseDatosInvitados);
-    
-    let htmlInGrid= "";
-    for (let i = 0; i < arrayInvitados.length; i++) {
-        let individualObject = arrayInvitados[i];
-        let nameIntegrantes;
-        if(individualObject.pases === 1) {
-            nameIntegrantes = `<p class='aloneIntegrant'>Invitado individual</p>`;
+    let guestsInfo = Object.values(baseDatosInvitados);
+    let guestList= Object.keys(baseDatosInvitados);
+
+    let htmlInGrid = "";
+
+    for (let i = 0; i < guestsInfo.length; i++) {
+
+        let guestData = guestsInfo[i];
+        let guestName;
+        
+        if (guestData.pases === 1) {
+            guestName = `<p class='aloneIntegrant'>Invitado individual</p>`;
         } else {
-            let groupOfIntegrantes = individualObject.nombres.map(e => e).join(', ');
-            
-            nameIntegrantes = `
-                <p class='integrantsNames'>${groupOfIntegrantes}</p>
+            let groupOfMembers = guestData.nombres.map(e => e).join(', ');
+            guestName = `
+                <p class='nameOfMembers'>${groupOfMembers}</p>
             `;
         }
-        htmlInGrid +=  `
-            <p>${individualObject.titulo}</p>
-            <p>${individualObject.pases}</p>
-            ${nameIntegrantes}
+
+        htmlInGrid += `
+            <p>${guestData.titulo}</p>
+            <p>${guestData.pases}</p>
+            ${guestName}
+
             <div class='urlContain'>
-                <p class='urlCopy'>https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${arrayKeys[i]}</p>
-                <button class='copyButtonUrl' data-url="https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${arrayKeys[i]}">Copiar</button>
-                </div>
+                <p class='urlCopy'>https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${guestList[i]}</p>
+                <button class='copyButtonUrl' data-url="https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${guestList[i]}">Copiar</button>
+            </div>
         `;
-    }
+    };
 
     body.innerHTML = `
-        <main class="panelControl">
-        <div class="headControl">
-            <p>PANEL DE CONTROL: INVITADOS</p>
-            <p>Gestión de enlaces y pases</p>
-        </div>
-        <section class="gridData">
-            <p class="headerTable">FAMILIA/INVITADO</p>
-            <p class="headerTable">PASES</p>
-            <p class="headerTable">INTEGRANTES</p>
-            <p class="headerTable">URL</p>
-            ${htmlInGrid}
-        </section>
-    </main>
+        <main class="controlPanel">
+            <div class="panelHeader">
+                <p>PANEL DE CONTROL: INVITADOS</p>
+                <p>Gestión de enlaces y pases</p>
+            </div>
+            <section class="dataGrid">
+                <p class="columnHeader">FAMILIA/INVITADO</p>
+                <p class="columnHeader">PASES</p>
+                <p class="columnHeader">INTEGRANTES</p>
+                <p class="columnHeader">URL</p>
+                ${htmlInGrid}
+            </section>
+        </main>
     `;
 }
 
 function deniedPass() {
-    let initialSection = document.querySelector('.initial-section');
-    initialSection.innerHTML += `<p style="margin: 30px" class="nombres">PASE DENEGADO</p>`;
+    let initialSection = document.querySelector('.initialSection');
+    initialSection.innerHTML += `<p style="margin: 30px" class="names">PASE DENEGADO</p>`;
 }
 
 
+function evaluatePass() {
+    let paramInv = getParamsURL();
+    let guestDetails = baseDatosInvitados[paramInv];
+    console.log(guestDetails);
+
+    if (paramInv == 'lista') paintPanelControl();
+    else if (guestDetails === undefined) deniedPass();
+    else if (Object.keys(guestDetails).length > 0) paintPass(guestDetails, paramInv);
+};
 
 
-function permitirPase() {
-    let whoIs = getParamsURL();
-    let dataInvited = baseDatosInvitados[whoIs];
-    // console.log(dataInvited);
-    
-    if(whoIs == 'lista') {
-        paintPanelControl();
-    } else if (dataInvited === undefined) {
-        console.log("No entras");
-        deniedPass();
-    } else {
-        console.log("Eres un invitado");
-        paintPass(dataInvited,whoIs);
-    }
-}
-
-document.addEventListener('click',async(e) => {
-    if(e.target.classList.contains('copyButtonUrl')) {
+document.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('copyButtonUrl')) {
         const url = e.target.dataset.url;
         try {
             await navigator.clipboard.writeText(url);
@@ -196,4 +192,4 @@ document.addEventListener('click',async(e) => {
 });
 
 
-permitirPase();
+evaluatePass();
