@@ -8,6 +8,7 @@ export const baseDatosInvitados = {
     "taype": { titulo: "Yenny Taype", pases: 1, nombres: [] },
     "bravo": { titulo: "Lucy Bravo", pases: 1, nombres: [] },
     "martinez": { titulo: "Evelin Martinez", pases: 1, nombres: [] },
+    "maldonado": { titulo: "Piero Maldonado", pases: 1, nombres: [] },
     "cheng": { titulo: "Lidia Cheng", pases: 1, nombres: [] },
     "hinostroza": { titulo: "Familia Hinostroza", pases: 2, nombres: ["Adrián Hinostroza", "Alexandra de Hinostroza"] },
     "manrique": { titulo: "Familia Manrique", pases: 2, nombres: ["Ricardina Manrique", "Jackelin Manrique"] },
@@ -74,7 +75,7 @@ function paintPass(info, name) {
     let initialSection = document.querySelector('.initialSection');
     let body = document.querySelector('body');
     initialSection.innerHTML += `
-        <p class="invitationText">INVITACION ESPECIAL PARA:</p>
+
         <p class="names">${info.titulo}</p>
         <p class="reservedPasses">${info.pases} PASES RESERVADOS</p>
     `;
@@ -89,13 +90,23 @@ function paintPass(info, name) {
     };
 
     body.innerHTML += `
-    <a href='secondIndex.html?inv=${name}' class='imageLink'>
-        <img class="gifCard" src="images/winterflower-letter-1174_256.gif" alt="">
-    </a>
-    <section class="footer-container">
-        <img class="weddingBackground" src="images/fondoboda.png" alt="">
-        <img class="married" src="images/novios.png" alt="">
-    </section>`;
+        <a href='secondIndex.html?inv=${name}' class='imageLink'>
+            <!--Aca puedes cambiar que carta o imagen deseas usar-->
+            <img class="gifCard" src="images/carta2.png" alt="">
+            
+            <img class="pointerGif" src="images/pointergif.gif" alt="">
+        </a>
+        
+    `;
+
+    // body.innerHTML += `
+    // <a href='secondIndex.html?inv=${name}' class='imageLink'>
+    //     <img class="gifCard" src="images/winterflower-letter-1174_256.gif" alt="">
+    // </a>
+    // <section class="footer-container">
+    //     <img class="weddingBackground" src="images/fondoboda.png" alt="">
+    //     <img class="married" src="images/novios.png" alt="">
+    // </section>`;
 };
 
 async function copyUrl(content) {

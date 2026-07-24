@@ -6,6 +6,7 @@ const baseDatosInvitados = {
     "anquis": { titulo: "Familia Anquis", pases: 4, nombres: ["Omar Anquis", "Lea Anquis", "Maricielo Anquis", "Camila Anquis"] },
     "nario": { titulo: "Familia Nario", pases: 4, nombres: ["Giovanni Nario", "Gudilia de Nario", "Angely Nario", "Giovanni Jesús Nario"] },
     "taype": { titulo: "Yenny Taype", pases: 1, nombres: [] },
+    "maldonado": { titulo: "Piero Maldonado", pases: 1, nombres: [] },
     "bravo": { titulo: "Lucy Bravo", pases: 1, nombres: [] },
     "martinez": { titulo: "Evelin Martinez", pases: 1, nombres: [] },
     "cheng": { titulo: "Lidia Cheng", pases: 1, nombres: [] },
