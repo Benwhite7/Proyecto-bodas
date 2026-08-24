@@ -213,8 +213,8 @@ function paintPanelControl() {
             ${guestName}
 
             <div class='urlContain'>
-                <p class='urlCopy'>https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${guestList[i]}</p>
-                <button class='copyButtonUrl' data-url="https://benwhite7.github.io/Proyecto-bodas/index.html?inv=${guestList[i]}">Copiar</button>
+                <p class='urlCopy'>https://benwhite7.github.io/bodas-invitaciones/index.html?inv=${guestList[i]}</p>
+                <button class='copyButtonUrl' data-url="https://benwhite7.github.io/bodas-invitaciones/index.html?inv=${guestList[i]}">Copiar</button>
             </div>
         `;
     };
