@@ -72,10 +72,14 @@ function getParamsURL() {
 }
 
 function paintPass(info, name) {
+
+    document.body.addEventListener('click', function() {
+        window.location.href = `https://bodas.tusitio.com.pe/${name}`;
+    });
+
     let initialSection = document.querySelector('.initialSection');
     let body = document.querySelector('body');
     initialSection.innerHTML += `
-
         <p class="names">${info.titulo}</p>
         <p class="reservedPasses">${info.pases} PASES RESERVADOS</p>
     `;
@@ -89,15 +93,15 @@ function paintPass(info, name) {
        `;
     };
 
-    body.innerHTML += `
-        <a href='secondIndex.html?inv=${name}' class='imageLink'>
-            <!--Aca puedes cambiar que carta o imagen deseas usar-->
-            <img class="gifCard" src="images/carta2.png" alt="">
+    // body.innerHTML += `
+    //     <a href='secondIndex.html?inv=${name}' class='imageLink'>
+    //         <!--Aca puedes cambiar que carta o imagen deseas usar-->
+    //         <img class="gifCard" src="images/carta2.png" alt="">
             
-            <img class="pointerGif" src="images/pointergif.gif" alt="">
-        </a>
+    //         <img class="pointerGif" src="images/pointergif.gif" alt="">
+    //     </a>
         
-    `;
+    // `;
 
     // body.innerHTML += `
     // <a href='secondIndex.html?inv=${name}' class='imageLink'>

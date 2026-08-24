@@ -5,6 +5,12 @@ body {
 
 body {
   font-family: "Bodoni Moda", serif;
+  background-image: url('./images/Familia\ Ejemplo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
   font-optical-sizing: none;
   font-weight: 500;
   position: relative;
@@ -26,6 +32,10 @@ body {
 
 .initialSection {
   text-align: center;
+  position: absolute;
+  width: 300px;
+  top: 65%;
+  left: calc(50% - 150px);
 }
 
 .initialSection img {
@@ -89,7 +99,7 @@ body {
   padding: 3px;
   border-radius: 5px;
   margin-top: 20px;
-  background-color: #39593d;
+  background-color: #0f0f0f;
   color: #ffffff;
   text-align: center;
 }
