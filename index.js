@@ -74,7 +74,7 @@ function getParamsURL() {
 function paintPass(info, name) {
 
     document.body.addEventListener('click', function() {
-        window.location.href = `https://bodas.tusitio.com.pe/${name}`;
+        window.location.href = `https://bodas.tusitio.com.pe/hya`;
     });
 
     let initialSection = document.querySelector('.initialSection');
