@@ -24,7 +24,7 @@ export const baseDatosInvitados = {
     "rossmery": { titulo: "Rossmery Tarazona", pases: 1, nombres: [] },
     "alanisse": { titulo: "Alanisse Luján", pases: 1, nombres: [] },
     "esmilda": { titulo: "Esmilda Quispe ", pases: 1, nombres: [] },
-    "karenq": { titulo: "Karen Quispe ", pases: 1, nombres: [] },
+    "karenm": { titulo: "Karen Mendoza", pases: 1, nombres: [] },
     "juana": { titulo: "Juana Campos", pases: 1, nombres: [] },
     "domitila": { titulo: "Domitila Campos", pases: 1, nombres: [] },
     "neldy": { titulo: "Neldy Huaytaya", pases: 1, nombres: [] },
