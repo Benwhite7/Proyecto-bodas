@@ -10,7 +10,7 @@ export const baseDatosInvitados = {
     "carrillo": { titulo: "Familia Carrillo", pases: 2, nombres: ["Alex Carrillo", "Gloria de Carrillo"] },
     "camavilca": { titulo: "Familia Camavilca", pases: 2, nombres: ["Emilio Camavilca", "Liz de Camavilca"] },
     "tolentino": { titulo: "Familia Tolentino", pases: 2, nombres: ["José Tolentino", "Karen de Tolentino"] },
-    "tolentino2": { titulo: "Familia Tolentino", pases: 2, nombres: ["Julián Tolentino", "Maritza Tolentino", "Alisson Tolentino"] },
+    "tolentino2": { titulo: "Familia Tolentino", pases: 3, nombres: ["Julián Tolentino", "Maritza Tolentino", "Alisson Tolentino"] },
     "espinoza": { titulo: "Familia Espinoza", pases: 2, nombres: ["Emilio Espinoza", "Margarita de Espinoza"] },
     "coronado": { titulo: "Familia Coronado", pases: 2, nombres: ["Johny Coronado", "Pamela de Coronado"] },
     "apaza": { titulo: "Familia Apaza", pases: 3, nombres: ["Julio Apaza", "Teresa de Apaza", "Annie"] },
@@ -126,6 +126,8 @@ export const baseDatosInvitados = {
     "Mariela-Cruzado": { titulo: "Mariela Cruzado", pases: 1, nombres: [] },
     "Anthony-Carazas": { titulo: "Anthony Carazas", pases: 1, nombres: [] },
     "Rosa-Colonia": { titulo: "Rosa Colonia", pases: 1, nombres: [] },
+    "Flora-Rivera": { titulo: "Flora Rivera", pases: 1, nombres: [] },
+    "Sthefanny-Huillca": { titulo: "Sthefanny Huillca", pases: 1, nombres: [] },
 };
 
 
