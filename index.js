@@ -128,7 +128,7 @@ export const baseDatosInvitados = {
     "Rosa-Colonia": { titulo: "Rosa Colonia", pases: 1, nombres: [] },
     "Flora-Rivera": { titulo: "Flora Rivera", pases: 1, nombres: [] },
     "Sthefanny-Huillca": { titulo: "Sthefanny Huillca", pases: 1, nombres: [] },
-    "invitado": { titulo: "", pases: 1, nombres: [] },
+    "invitado": { titulo: "Te invitamos", pases: 1, nombres: [] },
 };
 
 
